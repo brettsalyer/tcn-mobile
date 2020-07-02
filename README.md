@@ -1,6 +1,6 @@
-# TCN
+# TCN Mobile
 
-A new Flutter project.
+A mobile app developed and maintained by Tri-County Church of the Nazarene using the Flutter framework.
 
 ## Getting Started
 
