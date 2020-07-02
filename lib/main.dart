@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:TCN/screens/services/services.dart';
 import 'package:flutter/services.dart';
+import 'package:TCN/tcn_widgets.dart';
 
 void main() {
   runApp(MyApp());
@@ -58,18 +60,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,75 +106,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class NavDrawer extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-      return Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            Container(
-              height: 150,
-              child: DrawerHeader(
-                child: Text(""),
-                decoration: BoxDecoration(
-                  color: Colors.blueGrey,
-                  image: DecorationImage(
-                    image: ExactAssetImage('images/drawer_tcn_logo_black.png'),
-                  ),
-                ),
-              ),
-            ), 
-            ListTile(
-              title: Text("Home"),
-              onTap: () {
-                Navigator.pushNamed(context, '/');
-              },
-            ),
-            ListTile(
-              title: Text("News & Announcements"),
-            ),
-            ListTile(
-              title: Text("Digital Sermons"),
-            ),
-            ListTile(
-              title: Text("Request Prayer"),
-            ),
-            ListTile(
-              title: Text("Contact"),
-            ),
-            ListTile(
-              title: Text("Online Giving"),
-            ),
-            ListTile(
-              title: Text("Sunday Bulletin"),
-            ),
-          ],
-        ),
-      );
-  }
-}
-
-// Page not reachable from the navigation drawer. It is stateless, and can be left by using the 
-// Navigation drawer.
-
-// Currently, I am copying and pasting the drawer to each page, 
-// but a class should be created so we can keep reusing the drawer as needed.
-
-class ServicesPage extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color.fromRGBO(130, 130, 130, 100),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-      ),
-      drawer: NavDrawer(),
-      body: Text("Services listed here")
     );
   }
 }
