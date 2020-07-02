@@ -10,6 +10,9 @@ import 'package:TCN/screens/services/components/tcn_decorations.dart';
 // but a class should be created so we can keep reusing the drawer as needed.
 
 class ServicesPage extends StatelessWidget{
+
+  final String pageHeader = "Services";
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,13 +22,32 @@ class ServicesPage extends StatelessWidget{
       ),
       drawer: NavDrawer(),
       body: Center(
-        child: FractionallySizedBox(
-          widthFactor: 0.95,
-          heightFactor: 0.75,
-          child: Container (
-            decoration: TCNDecorations().servicesDecoration(),
-            child: Text("Services", textAlign: TextAlign.center),
-          )
+        child: Column (
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              padding: EdgeInsetsDirectional.only(bottom: 100, top: 40),
+              child: Text(
+                pageHeader, 
+                style: TextStyle(
+                  fontFamily: "Roboto", 
+                  fontWeight: FontWeight.w300, 
+                  fontSize: 28, 
+                  color: Colors.white
+                ),
+              )
+            ),
+            Flexible(
+              child: FractionallySizedBox(
+                widthFactor: 0.95,
+                heightFactor: 1,
+                child: Container (
+                  decoration: TCNDecorations().servicesDecoration(),
+                  child: Text("Sunday Morning", textAlign: TextAlign.center),
+                )
+              ),
+            )
+          ],
         )
       )
     );
