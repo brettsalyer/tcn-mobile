@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:TCN/screens/services/services.dart';
-import 'package:flutter/services.dart';
-import 'package:TCN/tcn_widgets.dart';
+import 'package:TCNMobile/screens/services/services.dart';
+import 'package:TCNMobile/tcn_widgets.dart';
+import 'package:TCNMobile/screens/digital_sermons/digital_sermons.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,9 +18,10 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => MyHomePage(),
-        '/services': (context) => ServicesPage()
+        '/services': (context) => ServicesPage(),
+        '/digital_sermons': (context) => DigitalSermons(),
       },
-      title: 'Flutter Demo',
+      title: 'TCN Mobile',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -60,7 +61,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -71,11 +71,10 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       backgroundColor: Color.fromRGBO(130, 130, 130, 100),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-      ),
+      appBar: AppBar(backgroundColor: Colors.transparent, title: Text("Home")
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          ),
       drawer: NavDrawer(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -88,21 +87,20 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Image.asset('images/tcn_logo_white.png',
                   height: 250, width: 275),
             ),
-
             Container(
               height: 50,
               width: 150,
               child: FlatButton(
-                child: Text("Services", style: TextStyle(fontSize: 18.0, color: Colors.white),),
+                child: Text(
+                  "Services",
+                  style: TextStyle(fontSize: 18.0, color: Colors.white),
+                ),
                 color: Colors.blue,
-        
-                onPressed: (){
+                onPressed: () {
                   Navigator.pushNamed(context, '/services');
                 },
               ),
             ),
-
-            
           ],
         ),
       ),
